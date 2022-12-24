@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brownian Motion Graph </title>
+</head>
+
+<style>
+    body,html {
+        font-family: syst-ui;
+        color: blue;
+        background: #eff5fe;
+        height:100%;
+        padding:0;
+        margin: 0;
+      }
+    body{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+    }
+    form{
+        width:200px;
+        min-height: 150;
+        border: 2px dashed #0288d147;
+        background: white;  
+        padding: 30px;
+        margin-right: 30px; 
+        border-radius: 10px;
+        display:
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1200px;
+        flex-direction: row;
+        
+    }
+    @media only screen and (max-width: 800px) {
+        .container{
+            flex-direction: column;
+        }
+        form{
+            margin-bottom: 30px;
+        }
+      }
+    .credits{
+        margin-top:20px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+    .go{
+        margin-top:20px;
+    }
+    .error{
+        margin-top:20px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<body>
+    <h1> Brownian Motion Graph Plotter </h1>
+
+    <div class="credits">
+        Made By: Aman Bucha
+        <br>
+        Roll no: 200123006
+        </div>
+<div class="container"> 
+    <form>
+        <label >Number of points</label> <br>
+        <input type="number" min="10" max="1000000" name="no_of_points"> <br>
+        <label >End Time</label> <br>
+        <input type="number" name="end_point"> <br>
+        <label >Number of graphs</label> <br>
+        <input type="number" min="1"  max="100" name="no_of_graphs"> <br>
+        <label >Drift</label> <br>
+        <input name="drift"> <br>
+        <label >Diffusion Coefficient</label> <br>
+        <input name="diff_coeff"> <br><br>
+        <input type="submit" value="Plot" class="form"> 
+    </form>
+{% if show %}
+<img margin=20px; src="data:image/png;base64,{{image}}">
+{% endif %}
+
+</div>
+{% if error %}
+<div class="ERROR">
+    Error! Please input valid values
+</div>
+{% endif %}
+<div class="go">
+<a href="/">Geometric Brownian Motion Graph Plotter</a>
+</div>
+
+</body>
+</html> 
